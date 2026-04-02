@@ -4,6 +4,7 @@
 name: NodeJS Test workflow on workflow_dispatch
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       commit_sha:
