@@ -19,6 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       max-parallel: 3
+      # Node 14 not supported on macOS: No arm64 binary for Node 14.
+      # Ubuntu + Node 14 & Windows + Node 14: Syntax error (||= operator) in transitive dependency. Latest browserstack-node-sdk pulls packages incompatible with Node 14.
       matrix:
         node: ['16', '18', '20', '24']
         os: [ macos-latest, windows-latest, ubuntu-latest ]
