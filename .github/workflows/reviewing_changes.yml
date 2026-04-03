@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       max-parallel: 3
       matrix:
-        node: ['14', '16', '18', '20']
+        node: ['16', '18', '20', '24']
         os: [ macos-latest, windows-latest, ubuntu-latest ]
     name: Codecept-js Repo ${{ matrix.node }} - ${{ matrix.os }} Sample
     env:
@@ -69,8 +69,8 @@ jobs:
           npm publish staging_package.tgz --registry http://localhost:4873/
         shell: bash
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install dependencies (Node 16+)
+        run: npm ci
 
       - name: Run sample tests
         run: npm run sample-test
